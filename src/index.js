@@ -16,6 +16,7 @@ require('./index.css').toString();
  * @property {string} placeholder — Block's placeholder
  * @property {number[]} levels — Heading levels
  * @property {number} defaultLevel — default level
+ * @property {boolean} preserveBlank - Whether or not to keep blank paragraphs when saving editor data
  */
 
 /**
@@ -213,7 +214,7 @@ class Header {
    * @public
    */
   validate(blockData) {
-    return blockData.text.trim() !== '';
+    return blockData.text.trim() !== '' || this._settings.preserveBlank;
   }
 
   /**
